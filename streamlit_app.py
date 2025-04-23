@@ -3,9 +3,22 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
 from PIL import Image
+import os
+import urllib.request
 
 # Load your trained model
 model = load_model("https://github.com/kanagathirsha/CottonLeafDiseasePrediction/releases/download/v1.0.0/best_densenet_model.h5")
+
+MODEL_URL = "https://github.com/kanagathirsha/CottonLeafDiseasePrediction/releases/download/v1.0.0/best_densenet_model.h5"
+MODEL_PATH = "best_densenet_model.h5"
+
+# Download model only if it doesn't exist locally
+if not os.path.exists(MODEL_PATH):
+    with urllib.request.urlopen(MODEL_URL) as response, open(MODEL_PATH, 'wb') as out_file:
+        out_file.write(response.read())
+
+# Load the model from the local file
+model = load_model(MODEL_PATH)
 
 # Class names (same order as your training)
 class_labels = ['Aphids', 'Army Worm', 'Bacterial Blight', 'Healthy Leaf', 'Powdery Mildew', 'Target Spot']
