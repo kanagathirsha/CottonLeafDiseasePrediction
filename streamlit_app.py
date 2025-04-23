@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image
 
 # Load your trained model
-model = load_model("https://github.com/kanagathirsha/CottonLeafDiseasePrediction/tags")
+model = load_model("https://github.com/kanagathirsha/CottonLeafDiseasePrediction/releases/download/v1.0.0/best_densenet_model.h5")
 
 # Class names (same order as your training)
 class_labels = ['Aphids', 'Army Worm', 'Bacterial Blight', 'Healthy Leaf', 'Powdery Mildew', 'Target Spot']
