@@ -6,8 +6,6 @@ from PIL import Image
 import os
 import urllib.request
 
-# Load your trained model
-model = load_model("https://github.com/kanagathirsha/CottonLeafDiseasePrediction/releases/download/v1.0.0/best_densenet_model.h5")
 
 MODEL_URL = "https://github.com/kanagathirsha/CottonLeafDiseasePrediction/releases/download/v1.0.0/best_densenet_model.h5"
 MODEL_PATH = "best_densenet_model.h5"
